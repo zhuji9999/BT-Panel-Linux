@@ -15,6 +15,8 @@
 
 ```
 
+#### 注意：<span style="color:#FF7256">本地搭建后台IP请替换为 127.0.0.1 </span>
+
 ## 其他
 
 + 停止： docker stop bt
