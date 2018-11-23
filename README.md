@@ -11,7 +11,7 @@
 
 ```bash
 
-    docker run -tid --name bt --restart always -p 80:80 -p 443:443 -p 8888:8888 -p 888:888 -p 3306:3306 -p 6379:6379 -p 20:20 -p 21:21 -v ~/workspace/www/wwwroot:/www/wwwroot -v ~/workspace/www/backup:/www/backop bt_panel && docker exec bt bt restart && docker exec bt bt default
+    docker run -tid --name bt --restart always -p 80:80 -p 443:443 -p 8888:8888 -p 888:888 -p 3306:3306 -p 6379:6379 -p 20:20 -p 21:21 -v ~/workspace/www/wwwroot:/www/wwwroot -v ~/workspace/www/backup:/www/backop bt-panel && docker exec bt bt restart && docker exec bt bt default
 
 ```
 
