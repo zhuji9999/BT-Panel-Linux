@@ -1,27 +1,42 @@
-# BT-Panel
+说明：
+1：本工具默认将数据盘挂载到/www目录
+2：若您的磁盘已分区，且未挂载，工具会自动将分区挂载到/www
+3：若您的磁盘是新磁盘，工具会自动分区并格式化成xfs/ext4文件系统
+【1.1】更新：
+1：增加指定挂载目录功能
+2：修正部分有独立引导分区的系统无法正确挂载的问题
+【1.2】更新：
+1：修正腾讯云部分节点自动挂载为只读的问题
+【1.3】 更新：
+1：修正在中文版系统下无法分区的问题
+【1.4】 更新：
+1：当已安装面板时，暂停所有服务，自动重命名/www，并迁移数据到新分区 注:仅限3.x/4.x/5.x/6.x/7.x面板支持迁移
+注：迁移过程中会将系统盘原有面板数据备份至/bt-backup目录
+【1.5】 更新：
+1：添加文字提醒
+【1.6】 更新：
+1：只有一个磁盘或www目录已被挂载的情况下，自动退出脚本，不执行任何操作
+【1.7】 更新：
+1：修复对面板6.x/7.x的支持
 
-在 Docker 中使用宝塔 Linux 面板
+使用方法 ：根据系统选择命令后进入ssh执行命令即可
 
-+ centos版本: 7.5.1804
-+ 宝塔版本: 免费版 6.6.1
+已安装宝塔若想挂载迁移请先做快照
+Centos系统请使用以下命令：
 
-## RUN
+    yum install wget -y && wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh && bash auto_disk.sh
 
-例：
+复制代码
 
-```bash
+Ubuntu系统请使用以下命令:
 
-    docker run -tid --name bt --restart always -p 80:80 -p 443:443 -p 8888:8888 -p 888:888 -p 3306:3306 -p 6379:6379 -p 20:20 -p 21:21 -v ~/workspace/www/wwwroot:/www/wwwroot -v ~/workspace/www/backup:/www/backop getting/bt-panel && docker exec bt bt restart && docker exec bt bt default
+    wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh && sudo bash auto_disk.sh
 
-```
+复制代码
 
-_注：本地搭建，打开宝塔界面时后台 IP 请替换为 127.0.0.1_
+Debian系统请使用以下命令:
 
-## 其他
+    wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh && bash auto_disk.sh
 
-+ 停止： docker stop bt
-
-+ 启用： docker start bt && docker exec bt bt restart
-
-+ 查看默认安装信息： docker exec bt bt default
+复制代码
 
